@@ -94,7 +94,8 @@ def add_file():
     # print('[Logger]: Staring moving of file')
     # shutil.copyfile(file_path, file_folder_path)
     # print('[Logger]: File successfully moved')
-    print('Coming soon ;)')
+    print_info('Coming soon ;)')
+    print()
 
 
 def print_info(text): print('\033[93m{}\033[00m'.format(text))

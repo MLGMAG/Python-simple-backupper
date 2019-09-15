@@ -20,27 +20,15 @@ def print_success(text): print('\033[92m{}\033[00m'.format(text))
 def print_warning(text): print('\033[91m {}\033[00m'.format(text))
 
 
-def get_folders_from_dir(path):
-    objects_in_folder = os.listdir(path)
-    folders = os.listdir(path)
-    for item in objects_in_folder:
-        for character in item:
-            if character == '.':
-                folders.remove(item)
-                break
-    del objects_in_folder
-    return folders
-
-
 def on_startup():
     print()
-    if files_folder not in get_folders_from_dir(current_path):
+    if not os.path.exists(file_folder_path):
         os.mkdir(files_folder + os.sep)
         print_info('[Logger]: File ("{}") isn\'t exist, I create one'.format(files_folder))
     else:
         print_info('[Logger]: File ("{}") is exist'.format(files_folder))
 
-    if backup_folder not in get_folders_from_dir(current_path):
+    if not os.path.exists(backup_folder_path):
         os.mkdir(backup_folder + os.sep)
         print_info('[Logger]: File ("{}") isn\'t exist, I create one'.format(backup_folder))
     else:
